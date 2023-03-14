@@ -1,8 +1,16 @@
-import '../styles/globals.css'
+import "tailwindcss/tailwind.css"
+import "styles/index.css"
 import type { AppProps } from 'next/app'
+import { Montserrat } from 'next/font/google'
+
+const montserrat = Montserrat({ subsets: ["latin"] })
 
 function MyApp({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />
+  return (
+    <main className={montserrat.className}>
+      <Component {...pageProps} />
+    </main>
+  )
 }
 
 export default MyApp

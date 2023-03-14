@@ -1,3 +1,5 @@
+const { fontFamily } = require('tailwindcss/defaultTheme')
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
@@ -6,7 +8,17 @@ module.exports = {
     './app/**/*.{js,ts,jsx,tsx}',
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        sans: ['var(--font-montserrat)', ...fontFamily.sans],
+      },
+      colors: {
+        mainRed: '#F05454',
+        mainBlack: '#222831',
+        mainBlue: '#30475E',
+        mainWhite: '#DDDDDD'
+      }
+    },
   },
   plugins: [],
 }

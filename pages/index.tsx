@@ -1,85 +1,73 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
-import Image from 'next/image'
+import { motion } from "framer-motion"
+import { SlArrowDownCircle } from 'react-icons/sl';
 
 const Home: NextPage = () => {
   return (
-    <div className="flex min-h-screen flex-col items-center justify-center py-2">
-      <Head>
-        <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+    <>
+        <Head>
+            <title>Kiriam C. Forés</title>
+            <link rel="icon" href="/favicon.ico" />
+        </Head>
 
-      <main className="flex w-full flex-1 flex-col items-center justify-center px-20 text-center">
-        <h1 className="text-6xl font-bold">
-          Welcome to{' '}
-          <a className="text-blue-600" href="https://nextjs.org">
-            Next.js!
-          </a>
-        </h1>
+        <header className="fixed top-0 z-30 w-full px-2 py-4 bg-transparent backdrop-blur-sm">
+          <div className="flex items-center justify-between mx-auto max-w-7xl">
+            <a href="#main" className="flex items-center gap-2 group">
+              <span className="text-2xl font-extrabold text-mainRed">k</span>
+              <span className="text-md font-extrabold text-mainRed group-hover:translate-x-4 transition-transform duration-200">-</span>
+            </a>
+            <div className="flex items-center space-x-1">
+              <ul className="hidden space-x-2 md:inline-flex">
+                <li><a href="#" className="px-4 py-2 font-semibold text-gray-600 rounded">CV</a></li>
+                <li><a href="#" className="px-4 py-2 font-semibold text-gray-600 rounded">Skills</a></li>
+                <li><a href="#" className="px-4 py-2 font-semibold text-gray-600 rounded">Projects</a></li>
+                <li><a href="#" className="px-4 py-2 font-semibold text-gray-600 rounded">About Me</a></li>
+                <li><a href="#" className="px-4 py-2 font-semibold text-gray-600 rounded">Contact</a></li>
+              </ul>
+              <div className="inline-flex md:hidden">
+                <button className="flex-none px-2 ">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8h16M4 16h16" />
+                  </svg>
+                  <span className="sr-only">Open Menu</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </header>
 
-        <p className="mt-3 text-2xl">
-          Get started by editing{' '}
-          <code className="rounded-md bg-gray-100 p-3 font-mono text-lg">
-            pages/index.tsx
-          </code>
-        </p>
-
-        <div className="mt-6 flex max-w-4xl flex-wrap items-center justify-around sm:w-full">
-          <a
-            href="https://nextjs.org/docs"
-            className="mt-6 w-96 rounded-xl border p-6 text-left hover:text-blue-600 focus:text-blue-600"
-          >
-            <h3 className="text-2xl font-bold">Documentation &rarr;</h3>
-            <p className="mt-4 text-xl">
-              Find in-depth information about Next.js features and its API.
-            </p>
-          </a>
-
-          <a
-            href="https://nextjs.org/learn"
-            className="mt-6 w-96 rounded-xl border p-6 text-left hover:text-blue-600 focus:text-blue-600"
-          >
-            <h3 className="text-2xl font-bold">Learn &rarr;</h3>
-            <p className="mt-4 text-xl">
-              Learn about Next.js in an interactive course with quizzes!
-            </p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/canary/examples"
-            className="mt-6 w-96 rounded-xl border p-6 text-left hover:text-blue-600 focus:text-blue-600"
-          >
-            <h3 className="text-2xl font-bold">Examples &rarr;</h3>
-            <p className="mt-4 text-xl">
-              Discover and deploy boilerplate example Next.js projects.
-            </p>
-          </a>
-
-          <a
-            href="https://vercel.com/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className="mt-6 w-96 rounded-xl border p-6 text-left hover:text-blue-600 focus:text-blue-600"
-          >
-            <h3 className="text-2xl font-bold">Deploy &rarr;</h3>
-            <p className="mt-4 text-xl">
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
-        </div>
-      </main>
-
-      <footer className="flex h-24 w-full items-center justify-center border-t">
-        <a
-          className="flex items-center justify-center gap-2"
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
-        </a>
-      </footer>
-    </div>
+        <main className="scroll-smooth">
+          <div id="main" className="w-full relative min-h-screen bg-mainBlack flex flex-col justify-center items-center">
+            <motion.div className="flex flex-col gap-4 items-center" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1.5, delay: .3 }}>
+              <h1 className="text-mainWhite text-5xl">
+                <span>Hello there, my name is </span>
+                <span className="text-[#F05454]">Kiriam</span>
+              </h1>
+              <h5 className="text-mainWhite text-3xl">
+                <span>I am a </span>
+                <span className="text-mainBlue">Junior</span>
+                <span> Full Stack Developer</span>
+              </h5>
+            </motion.div>
+            <SlArrowDownCircle className="absolute bottom-2 animate-bounce text-3xl text-mainWhite"/>
+          </div>
+          <div className="w-full relative min-h-screen bg-black flex flex-col justify-center items-center">
+            <motion.div className="flex flex-col gap-4 items-center" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1 }}>
+              <h1 className="text-mainWhite text-5xl">
+                  <span>Hello there, my name is </span>
+                  <span className="text-[#F05454]">Kiriam</span>
+              </h1>
+              <h5 className="text-mainWhite text-3xl">
+                <span>I am a </span>
+                <span className="text-mainBlue">Junior</span>
+                <span> Full Stack Developer</span>
+              </h5>
+            </motion.div>
+          </div>
+        </main>
+    </>
   )
 }
 
