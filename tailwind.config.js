@@ -16,7 +16,8 @@ module.exports = {
         mainRed: '#F05454',
         mainBlack: '#222831',
         mainBlue: '#1F5063',
-        mainWhite: '#DDDDDD'
+        mainWhite: '#DDDDDD',
+        mainRedLight: 'rgba(240, 84, 84, .1)'
       }
     },
   },
