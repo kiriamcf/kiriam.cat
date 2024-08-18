@@ -14,7 +14,6 @@ onMounted(() => {
 
     requestAnimationFrame(raf)
 })
-
 </script>
 
 <template>
@@ -42,5 +41,9 @@ html.lenis, html.lenis body {
 
 .lenis.lenis-smooth iframe {
   pointer-events: none;
+}
+
+body {
+  overflow: hidden;
 }
 </style>
