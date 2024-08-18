@@ -45,11 +45,11 @@ onMounted(() => {
 </script>
 
 <template>
-    <div class="my-16">
+    <section>
         <ContentTitle id="about-me" title="About me" />
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
-            <div class="md:col-span-2 text-lg">
-                <p class="scroll-reveal">
+            <div class="md:col-span-2">
+                <p class="scroll-reveal text-lg">
                     Hello! My name is <Highlight>Kiriam</Highlight>, but people often call me <Highlight>Kiri</Highlight>. I am a {{ age }}-year-old full stack developer based in Manresa, Catalonia.
                     <br><br>
                     I hold a degree in <Highlight>ICT Systems Engineering</Highlight> from the Polytechnic University of Catalonia (UPC).
@@ -63,5 +63,5 @@ onMounted(() => {
             </div>
             <img :src="portfolio" alt="Portfolio Picture" class="shadow-lg rounded-md h-full object-cover max-h-96 sm:max-h-none mx-auto">
         </div>
-    </div>
+    </section>
 </template>

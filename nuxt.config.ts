@@ -13,7 +13,11 @@ export default defineNuxtConfig({
           colors: {
             main: {
               'black': '#111111',
-              'red': '#fb5e75'
+              'red': '#fb5e75',
+              'gray': {
+                DEFAULT: '#131518',
+                'light': '#1B1D20'
+              }
             }
           },
           fontFamily: {
