@@ -1,5 +1,4 @@
 <script setup>
-import Layout from './components/Layout.vue';
 import LoadingAnimation from './components/animations/Loading.vue';
 import ContentAnimation from './components/animations/Content.vue';
 import Header from './components/sections/Header.vue'
@@ -9,7 +8,7 @@ import AboutMe from './components/sections/AboutMe.vue';
 </script>
 
 <template>
-    <Layout>
+    <NuxtLayout>
         <LoadingAnimation />
 
         <ContentAnimation>
@@ -24,5 +23,5 @@ import AboutMe from './components/sections/AboutMe.vue';
                 </div>
             </div>
         </ContentAnimation>
-    </Layout>
+    </NuxtLayout>
 </template>
