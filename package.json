@@ -13,7 +13,9 @@
     "@nuxtjs/google-fonts": "^3.2.0",
     "@nuxtjs/tailwindcss": "^6.12.1",
     "gsap": "^3.12.5",
+    "lenis": "^1.1.9",
     "nuxt": "^3.12.4",
+    "split-type": "^0.3.4",
     "vue": "latest"
   }
 }
