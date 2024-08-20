@@ -12,11 +12,7 @@ const tweened = reactive({
 })
 
 onMounted(() => {
-    const animation = gsap.timeline({
-        onStart: function() {
-            document.getElementById("content").style.display = "none";
-        },
-    });
+    const animation = gsap.timeline();
 
     animation.to(tweened, { duration: 1, number: 100 });
 

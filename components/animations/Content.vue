@@ -26,7 +26,7 @@ onMounted(() => {
 </script>
 
 <template>
-    <div ref="content" id="content">
+    <div ref="content" id="content" class="hidden">
         <slot />
     </div>
 </template>
