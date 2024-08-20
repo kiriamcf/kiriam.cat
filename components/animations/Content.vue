@@ -5,16 +5,9 @@ import { gsap } from 'gsap'
 const content = ref(null);
 
 onMounted(() => {
-    const animation = gsap.timeline({ 
-        delay: 2.55, 
-        onStart: function() {
-            content.value.style.display = "block";
-        },
-    });
-
-    animation.fromTo(content.value,
+    gsap.fromTo(content.value,
         { 
-            y: "100vh",
+            y: "100svh",
         },
         { 
             duration: 0.5,
@@ -26,7 +19,7 @@ onMounted(() => {
 </script>
 
 <template>
-    <div ref="content" id="content" class="hidden">
+    <div ref="content" id="content">
         <slot />
     </div>
 </template>

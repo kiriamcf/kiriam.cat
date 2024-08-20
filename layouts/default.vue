@@ -1,6 +1,10 @@
 <script setup>
+import LoadingAnimation from '../components/animations/Loading.vue';
+import ContentAnimation from '../components/animations/Content.vue';
 import Lenis from 'lenis'
-import { onMounted } from 'vue'
+import { onMounted, ref } from 'vue'
+
+const showContent = ref(false)
 
 onMounted(() => {
     const lenis = new Lenis()
@@ -14,11 +18,19 @@ onMounted(() => {
 
     requestAnimationFrame(raf)
 })
+
+function displayContent() {
+	showContent.value = true
+}
 </script>
 
 <template>
     <main class="relative min-h-svh antialiased">
-        <slot />
+        <LoadingAnimation @finished="displayContent()" />
+
+        <ContentAnimation v-if="showContent">
+          <slot />
+        </ContentAnimation>
     </main>
 </template>
 

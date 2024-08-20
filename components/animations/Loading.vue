@@ -1,8 +1,9 @@
 <script setup>
-import { ref, reactive, onMounted } from 'vue'
+import { ref, reactive, onMounted, defineEmits } from 'vue'
 import { gsap } from 'gsap'
 import { TextPlugin } from "gsap/TextPlugin";
 
+const emit = defineEmits(['finished']);
 const textElement = ref(null);
 
 gsap.registerPlugin(TextPlugin)
@@ -12,6 +13,10 @@ const tweened = reactive({
 })
 
 onMounted(() => {
+    setTimeout(()=>{
+        emit('finished')
+    },2600);
+
     const animation = gsap.timeline();
 
     animation.to(tweened, { duration: 1, number: 100 });

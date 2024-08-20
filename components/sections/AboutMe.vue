@@ -40,6 +40,11 @@ onMounted(() => {
             stagger: 0.1
         })
     })
+
+    setTimeout(()=>{
+        ScrollTrigger.refresh();
+    },100);
+
 })
 
 </script>
