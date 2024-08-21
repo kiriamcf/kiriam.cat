@@ -1,75 +1,9 @@
-# Nuxt 3 Minimal Starter
+# Portfolio website
 
-Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+This is my personal portfolio website. 
 
-## Setup
+The goal behind coding this was to have a space where I can share everything I do in a cool way.
 
-Make sure to install the dependencies:
+## Technologies
 
-```bash
-# npm
-npm install
-
-# pnpm
-pnpm install
-
-# yarn
-yarn install
-
-# bun
-bun install
-```
-
-## Development Server
-
-Start the development server on `http://localhost:3000`:
-
-```bash
-# npm
-npm run dev
-
-# pnpm
-pnpm run dev
-
-# yarn
-yarn dev
-
-# bun
-bun run dev
-```
-
-## Production
-
-Build the application for production:
-
-```bash
-# npm
-npm run build
-
-# pnpm
-pnpm run build
-
-# yarn
-yarn build
-
-# bun
-bun run build
-```
-
-Locally preview production build:
-
-```bash
-# npm
-npm run preview
-
-# pnpm
-pnpm run preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+The whole project is coded with a combination of ``HTML``, ``TailwindCSS``, ``GSAP`` and ``VueJS``. ``Nuxt`` was used in order to prerender the website and in consequence increase the SEO.
