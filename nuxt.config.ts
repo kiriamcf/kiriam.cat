@@ -29,7 +29,8 @@ export default defineNuxtConfig({
               'red': '#fb5e75',
               'gray': {
                 DEFAULT: '#131518',
-                'light': '#1B1D20'
+                'light': '#1B1D20',
+                'extra-light': '#2C2F34',
               }
             }
           },
