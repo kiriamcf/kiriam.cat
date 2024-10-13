@@ -1,8 +1,9 @@
 <script setup>
-import { ref, reactive, onMounted, defineEmits } from 'vue'
+import { ref, reactive, onMounted, defineEmits, inject } from 'vue'
 import { gsap } from 'gsap'
 import { TextPlugin } from "gsap/TextPlugin";
 
+const loadingDelay = inject('loadingDelay')
 const emit = defineEmits(['finished']);
 const textElement = ref(null);
 
@@ -13,10 +14,6 @@ const tweened = reactive({
 })
 
 onMounted(() => {
-    setTimeout(()=>{
-        emit('finished')
-    },2600);
-
     const animation = gsap.timeline();
 
     animation.to(tweened, { duration: 1, number: 100 });
@@ -37,11 +34,23 @@ onMounted(() => {
         duration: 0.75,
         ease: 'circ.inOut',
     });
+
+    gsap.to(textElement.value, {
+        delay: loadingDelay - 0.3,
+        opacity: 0,
+    })
+
+    gsap.to('#overlay', {
+        delay: loadingDelay,
+        duration: 0.5,
+        height: 0,
+        ease: 'power2.inOut'
+    })
 });
 </script>
 
 <template>
-    <div class="fixed inset-0 -z-10 font-lato">
+    <div id="overlay" class="fixed bg-white inset-0 z-10 font-lato overflow-hidden">
         <div class="relative w-full h-full flex justify-center items-center">
             <p ref="textElement" class="inline-flex whitespace-pre text-2xl sm:text-6xl font-medium overflow-hidden">
                 <span class="show">K</span>

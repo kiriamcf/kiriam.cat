@@ -1,14 +1,13 @@
 <script setup>
 import LoadingAnimation from '../components/animations/Loading.vue';
-import ContentAnimation from '../components/animations/Content.vue';
 import Lenis from 'lenis'
-import { onMounted, ref } from 'vue'
+import { onMounted, provide } from 'vue'
 
-const showContent = ref(false)
+provide('loadingDelay', 2.5)
 
 onMounted(() => {
+	// Lenis smooth scroll
     const lenis = new Lenis()
-
     lenis.on('scroll', (e) => {})
 
     function raf(time) {
@@ -17,20 +16,21 @@ onMounted(() => {
     }
 
     requestAnimationFrame(raf)
-})
 
-function displayContent() {
-	showContent.value = true
-}
+	// Scroll disable on load
+	window.scrollTo(0, 0);
+	lenis.stop();
+	setTimeout(() => {
+		lenis.start();
+	}, 2500);
+})
 </script>
 
 <template>
     <main class="relative min-h-svh antialiased">
-        <LoadingAnimation @finished="displayContent()" />
+        <LoadingAnimation />
 
-        <ContentAnimation v-if="showContent">
-          <slot />
-        </ContentAnimation>
+        <slot />
     </main>
 </template>
 
