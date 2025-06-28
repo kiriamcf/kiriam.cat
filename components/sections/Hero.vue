@@ -11,10 +11,8 @@ onMounted(() => {
     const observer = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                console.log('disable button')
                 shouldDisplayIcon.value = false
             } else {
-                console.log('enable button')
                 shouldDisplayIcon.value = true
             }
         });

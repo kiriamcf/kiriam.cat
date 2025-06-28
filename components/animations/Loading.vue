@@ -23,7 +23,7 @@ onMounted(() => {
     const fontSize = parseFloat(window.getComputedStyle(textElement.value).fontSize) * 0.8
     const offsets = [-fontSize, 0, fontSize, 2*fontSize];
 
-    animation.to('.hide', { y: -(fontSize+80), duration: 0.75, ease: 'power4.out', stagger: 0.02 });
+    animation.to('.hide', { y: -(fontSize+100), duration: 0.75, ease: 'power4.out', stagger: 0.02 });
     
     animation.to('.show', { 
         x: (index, target) => {
