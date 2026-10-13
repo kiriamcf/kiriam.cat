@@ -12,6 +12,13 @@ export default defineNuxtConfig({
   app: {
     head: {
       title: 'Kiriam C. Forés',
+      // Safari's translucent toolbars and overscroll areas show the page background, so it must be dark too
+      meta: [
+        { name: 'theme-color', content: '#111111' },
+        { name: 'color-scheme', content: 'dark' },
+      ],
+      htmlAttrs: { class: 'bg-main-black' },
+      bodyAttrs: { class: 'bg-main-black' },
       link: [
         { rel: 'icon', type: 'image/png', sizes: '32x32', href: '/favicon/favicon-32x32.png' },
         { rel: 'icon', type: 'image/png', sizes: '16x16', href: '/favicon/favicon-16x16.png' },
