@@ -49,7 +49,7 @@ onBeforeUnmount(() => observer?.disconnect())
             <span class="block overflow-hidden"><span class="hero-line block">kiriam campobadal forés</span></span>
         </h3>
         <hr class="max-w-28 w-full mx-auto my-6">
-        <h1 class="font-medium capitalize text-center text-6xl sm:text-7xl">
+        <h1 class="font-medium capitalize text-center text-6xl sm:text-7xl flex flex-wrap justify-center gap-x-[0.25em]">
             <span class="inline-block overflow-hidden py-[0.1em] -my-[0.1em]"><span class="hero-line inline-block">full stack</span></span>
             <span class="inline-block overflow-hidden py-[0.1em] -my-[0.1em]"><span class="hero-line inline-block text-main-red">developer</span></span>
         </h1>
