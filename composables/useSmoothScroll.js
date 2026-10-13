@@ -13,8 +13,15 @@ export function useSmoothScroll(enabled) {
     let lenis
     const tick = (time) => lenis.raf(time * 1000)
 
-    onMounted(() => {
+    // Every visit starts at the top behind the loader. This must happen during setup, before the sections mount:
+    // if their ScrollTriggers are created at a restored scroll position, `once` triggers kill themselves
+    // mid-creation and crash ScrollTrigger ("Cannot read properties of undefined (reading 'end')").
+    if (import.meta.client) {
+        history.scrollRestoration = 'manual'
         window.scrollTo(0, 0)
+    }
+
+    onMounted(() => {
         if (prefersReducedMotion()) return
 
         lenis = new Lenis()
