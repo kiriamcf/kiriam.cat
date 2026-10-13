@@ -56,13 +56,13 @@ onMounted(async () => {
       .to(ins, { yPercent: 0, duration: 1, stagger: 0.02, ease: 'expo.out' }, 'swap+=0.1')
       .to(counter.value, { yPercent: -100, duration: 0.8, ease: 'expo.out' }, 'swap+=0.15')
 
-    // 3. Initials accelerate into each other (expo.in = the "slam") and vanish on impact
+    // 3. Initials accelerate into each other (expo.in = the "slam") and land as a solid "KCF."
       .addLabel('converge', 'swap+=0.8')
       .to(initials, { x: (i) => offsets[i], duration: 0.7, ease: 'expo.in' }, 'converge')
-      .to(initials, { autoAlpha: 0, duration: 0.1 }, 'converge+=0.64')
 
-    // 4. The page rises from the bottom behind a bending edge, already underway during the slam
-      .addLabel('reveal', 'converge+=0.2')
+    // 4. The page rises from the bottom behind a bending edge, already underway during the slam.
+    //    Its edge reaches the middle of the screen just after "KCF." lands and wipes it away with the overlay
+      .addLabel('reveal', 'converge+=0.35')
       .to(reveal, { t: 1, duration: 1.2, ease: 'none', onUpdate: () => clipOverlay(reveal.t) }, 'reveal')
       .call(() => emit('finished'), null, 'reveal+=0.45')
 })
