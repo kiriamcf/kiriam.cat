@@ -21,6 +21,17 @@ npm run build     # production build
 npm run preview   # preview the production build
 ```
 
+## Deploying
+
+The site is deployed manually to Cloudflare Pages. The `cloudflare_pages` preset in `nuxt.config.ts` builds into `dist/`:
+
+```bash
+npm run build
+npx wrangler pages deploy dist/
+```
+
+The first deploy from a machine asks you to log in to Cloudflare (`npx wrangler login`).
+
 ## Structure
 
 ```
