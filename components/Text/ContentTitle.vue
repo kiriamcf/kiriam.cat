@@ -1,34 +1,24 @@
 <script setup>
-import { ref, onMounted, onBeforeUnmount } from 'vue'
+import { ref } from 'vue'
+import { gsap } from 'gsap'
+import { useGsap } from '../../composables/useGsap'
 
 const props = defineProps(['title'])
 
-const title = ref(null)
-const lineWidth = ref(0)
+const root = ref(null)
 
-const calculateLineWidth = () => {
-  if (title.value) {
-    lineWidth.value = Math.floor(title.value.clientWidth * 0.4)
-  }
-}
-
-onMounted(() => {
-  calculateLineWidth()
-
-  window.addEventListener('resize', calculateLineWidth)
-})
-
-onBeforeUnmount(() => {
-  window.removeEventListener('resize', calculateLineWidth)
+useGsap(root, () => {
+    gsap.timeline({ scrollTrigger: { trigger: root.value, start: 'top 85%', once: true } })
+        .from('.title-line', { yPercent: 110, duration: 1.2, ease: 'expo.out' })
+        .from('.title-rule', { scaleX: 0, duration: 1, ease: 'expo.inOut' }, 0.15)
 })
 </script>
 
 <template>
-    <div class="relative mb-8">
-        <h2 ref="title"
-            class="text-4xl w-fit">
-            {{ props.title }}
+    <div ref="root" class="relative mb-8 w-fit">
+        <h2 class="text-4xl overflow-hidden pb-[0.1em] -mb-[0.1em]">
+            <span class="title-line block">{{ props.title }}</span>
         </h2>
-        <div class="absolute -bottom-2 h-0.5 bg-white rounded" :style="{'width': lineWidth + 'px'}"></div>
+        <div class="title-rule absolute -bottom-2 left-0 h-0.5 w-2/5 bg-white rounded origin-left"></div>
     </div>
 </template>
