@@ -1,34 +1,15 @@
 <script setup>
 import LoadingAnimation from '../components/animations/Loading.vue';
-import Lenis from 'lenis'
-import { onMounted, provide } from 'vue'
+import { provideLoader } from '../composables/useLoader'
+import { useSmoothScroll } from '../composables/useSmoothScroll'
 
-provide('loadingDelay', 2.5)
-
-onMounted(() => {
-	// Lenis smooth scroll
-    const lenis = new Lenis()
-    lenis.on('scroll', (e) => {})
-
-    function raf(time) {
-        lenis.raf(time)
-        requestAnimationFrame(raf)
-    }
-
-    requestAnimationFrame(raf)
-
-	// Scroll disable on load
-	window.scrollTo(0, 0);
-	lenis.stop();
-	setTimeout(() => {
-		lenis.start();
-	}, 2500);
-})
+const { loaded, markLoaded } = provideLoader()
+useSmoothScroll(loaded)
 </script>
 
 <template>
     <main class="relative min-h-svh antialiased">
-        <LoadingAnimation />
+        <LoadingAnimation @finished="markLoaded" />
 
         <slot />
     </main>
