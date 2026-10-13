@@ -5,7 +5,7 @@ import Skill from '../cards/Skill.vue'
 
 <template>
     <section>
-        <ContentTitle id="about-me" title="Skills" />
+        <ContentTitle id="skills" title="Skills" />
         <p class="text-lg mb-6">Some of the technologies I've worked with:</p>
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
             <Skill img="/laravel" text="Laravel" url="https://laravel.com" />
