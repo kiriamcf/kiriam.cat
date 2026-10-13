@@ -9,7 +9,7 @@ import Skills from './components/sections/Skills.vue';
 <template>
     <NuxtLayout>
         <div class="relative bg-main-black">
-            <div class="w-full text-white max-w-screen-2xl mx-auto">
+            <div class="w-full text-white">
                 <Header />
                 <div class="max-w-screen-lg mx-auto px-4 flex flex-col gap-16 sm:gap-32">
                     <Hero />

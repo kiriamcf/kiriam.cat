@@ -106,7 +106,7 @@ function convergeOffsets(initials) {
         <div class="relative w-full h-full flex justify-center items-center">
             <p
                 ref="line"
-                class="invisible flex gap-[0.25em] uppercase font-medium tracking-[-0.04em] leading-[1.2] text-[5.5vw] sm:text-[5vw]"
+                class="invisible flex gap-[0.25em] uppercase font-medium tracking-[-0.04em] leading-[1.2] text-[6.5vw] sm:text-[5vw]"
                 aria-label="Kiriam Campobadal Forés."
             >
                 <span v-for="word in words" :key="word" class="flex" aria-hidden="true">
@@ -126,7 +126,7 @@ function convergeOffsets(initials) {
             </p>
 
             <div class="absolute bottom-4 right-4 sm:bottom-8 sm:right-8 overflow-hidden leading-none">
-                <span ref="counter" class="block text-4xl sm:text-6xl font-medium tabular-nums tracking-tight">000%</span>
+                <span ref="counter" class="block text-2xl sm:text-6xl font-medium tabular-nums tracking-tight">000%</span>
             </div>
         </div>
     </div>

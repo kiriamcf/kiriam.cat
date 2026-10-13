@@ -16,13 +16,15 @@ onLoaderFinished(() => run(() => {
 </script>
 
 <template>
-    <header ref="header" class="p-4 sticky top-0 flex justify-between items-center z-10 bg-main-black/80 backdrop-blur-md h-16">
-        <img src="/transparent-logo.png" alt="Logo" class="h-8">
-        <div class="flex gap-2 items-center">
-            <a href="https://www.linkedin.com/in/kiriam-campobadal-fores" target="_blank" class="flex items-center">
-                <Icon name="mdi:linkedin" class="size-5" />
-            </a>
-            <a href="mailto:soc@kiriam.cat">Contact</a>
+    <header ref="header" class="sticky top-0 z-10 h-16 bg-main-black/80 backdrop-blur-md">
+        <div class="max-w-screen-lg h-full mx-auto px-4 flex justify-between items-center">
+            <img src="/transparent-logo.png" alt="Logo" class="h-8">
+            <div class="flex gap-2 items-center">
+                <a href="https://www.linkedin.com/in/kiriam-campobadal-fores" target="_blank" rel="noopener noreferrer" class="flex items-center">
+                    <Icon name="mdi:linkedin" class="size-5" />
+                </a>
+                <a href="mailto:soc@kiriam.cat">Contact</a>
+            </div>
         </div>
     </header>
 </template>
