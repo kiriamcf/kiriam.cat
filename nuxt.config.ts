@@ -2,6 +2,9 @@
 
 const defaultTheme = require('tailwindcss/defaultTheme')
 
+const siteUrl = 'https://kiriam.cat/'
+const description = 'Kiriam Campobadal Forés, full stack developer in Manresa, Catalonia. I build web apps end to end with Laravel, Vue and Tailwind CSS.'
+
 export default defineNuxtConfig({
   compatibilityDate: '2024-04-03',
   devtools: { enabled: true },
@@ -11,15 +14,48 @@ export default defineNuxtConfig({
   },
   app: {
     head: {
-      title: 'Kiriam C. Forés',
-      // Safari's translucent toolbars and overscroll areas show the page background, so it must be dark too
+      title: 'Kiriam Campobadal Forés · Full stack developer',
       meta: [
+        { name: 'description', content: description },
+        // Safari's translucent toolbars and overscroll areas show the page background, so it must be dark too
         { name: 'theme-color', content: '#111111' },
         { name: 'color-scheme', content: 'dark' },
+        // Link previews (LinkedIn, WhatsApp, Slack, X...)
+        { property: 'og:type', content: 'website' },
+        { property: 'og:url', content: siteUrl },
+        { property: 'og:site_name', content: 'Kiriam C. Forés' },
+        { property: 'og:title', content: 'Kiriam Campobadal Forés · Full stack developer' },
+        { property: 'og:description', content: description },
+        { property: 'og:image', content: `${siteUrl}og-image.png` },
+        { property: 'og:image:width', content: '1200' },
+        { property: 'og:image:height', content: '630' },
+        { property: 'og:image:alt', content: 'Kiri wordmark, with the text Kiriam Campobadal Forés, full stack developer' },
+        { name: 'twitter:card', content: 'summary_large_image' },
       ],
-      htmlAttrs: { class: 'bg-main-black' },
+      htmlAttrs: { lang: 'en', class: 'bg-main-black' },
       bodyAttrs: { class: 'bg-main-black' },
+      script: [
+        // Structured data so search engines can tie the site, the name and the LinkedIn profile to one person
+        {
+          type: 'application/ld+json',
+          innerHTML: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'Person',
+            name: 'Kiriam Campobadal Forés',
+            alternateName: 'Kiri',
+            jobTitle: 'Full stack developer',
+            url: siteUrl,
+            email: 'mailto:soc@kiriam.cat',
+            image: `${siteUrl}og-image.png`,
+            address: { '@type': 'PostalAddress', addressLocality: 'Manresa', addressRegion: 'Catalonia', addressCountry: 'ES' },
+            alumniOf: { '@type': 'CollegeOrUniversity', name: 'Universitat Politècnica de Catalunya' },
+            knowsAbout: ['Laravel', 'Livewire', 'MySQL', 'Vue.js', 'Inertia.js', 'Alpine.js', 'SolidJS', 'Tailwind CSS'],
+            sameAs: ['https://www.linkedin.com/in/kiriam-campobadal-fores'],
+          }),
+        },
+      ],
       link: [
+        { rel: 'canonical', href: siteUrl },
         { rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' },
         { rel: 'icon', type: 'image/png', sizes: '32x32', href: '/favicon/favicon-32x32.png' },
         { rel: 'icon', type: 'image/png', sizes: '16x16', href: '/favicon/favicon-16x16.png' },

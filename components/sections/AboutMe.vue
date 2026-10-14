@@ -1,5 +1,5 @@
 <script setup>
-import portfolio from '../../public/portfolio.jpg'
+import portfolio from '../../public/portfolio.webp'
 import ContentTitle from '../Text/ContentTitle.vue'
 import Highlight from '../Text/Highlight.vue'
 import { ref, computed } from 'vue'
@@ -75,7 +75,7 @@ useGsap(root, () => {
                 I'm Kiri, a {{ age }}-year-old developer who puts real <Highlight>care</Highlight> into every website.
             </p>
             <div ref="photo" class="md:col-span-5 md:row-span-2 md:mt-24 aspect-[4/5] overflow-hidden rounded-2xl">
-                <img :src="portfolio" alt="Portrait of Kiriam" class="size-full object-cover">
+                <img :src="portfolio" alt="Portrait of Kiriam" width="900" height="1331" loading="lazy" decoding="async" class="size-full object-cover">
             </div>
             <dl class="facts md:col-span-7 md:row-start-2 grid gap-8 sm:grid-cols-2 self-start">
                 <div v-for="fact in facts" :key="fact.label" class="fact flex flex-col gap-1">

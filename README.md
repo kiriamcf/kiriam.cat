@@ -32,6 +32,8 @@ npx wrangler pages deploy dist/
 
 The first deploy from a machine asks you to log in to Cloudflare (`npx wrangler login`).
 
+Stop `npm run dev` before building: it rewrites `.nuxt` with dev-only code that ends up in the build, and every request in production then fails with a 500. Check the build locally with `npx wrangler pages dev dist/` before deploying.
+
 ## Structure
 
 ```
