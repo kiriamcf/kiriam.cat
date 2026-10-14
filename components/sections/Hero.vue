@@ -63,13 +63,13 @@ onBeforeUnmount(() => observer?.disconnect())
 <template>
     <section ref="hero" id="hero" class="relative min-h-[100svh] flex flex-col justify-center py-12">
         <h1 data-hero-wordmark>
-            <span class="sr-only">Kiriam Campobadal Forés, full stack developer</span>
+            <span class="sr-only">Kiriam Campobadal Forés, software engineer</span>
             <Logo aria-hidden="true" class="w-full h-auto" />
         </h1>
 
         <div class="mt-8 sm:mt-12 grid gap-8 sm:grid-cols-[minmax(0,1fr)_auto] sm:items-end">
             <p class="overflow-hidden max-w-[36ch] text-lg sm:text-xl leading-relaxed text-white/70">
-                <span class="hero-line block">Full stack developer in Manresa. I build web apps end to end, from the database to the last animation.</span>
+                <span class="hero-line block">Software engineer in Manresa. I build web apps end to end, from the database to the last animation.</span>
             </p>
             <div class="overflow-hidden py-1">
                 <div class="hero-line flex items-center gap-3">

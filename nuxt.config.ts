@@ -3,7 +3,7 @@
 const defaultTheme = require('tailwindcss/defaultTheme')
 
 const siteUrl = 'https://kiriam.cat/'
-const description = 'Kiriam Campobadal Forés, full stack developer in Manresa, Catalonia. I build web apps end to end with Laravel, Vue and Tailwind CSS.'
+const description = 'Kiriam Campobadal Forés, software engineer in Manresa, Catalonia. I build web apps end to end with Laravel, Vue and Tailwind CSS.'
 
 export default defineNuxtConfig({
   compatibilityDate: '2024-04-03',
@@ -14,7 +14,7 @@ export default defineNuxtConfig({
   },
   app: {
     head: {
-      title: 'Kiriam Campobadal Forés · Full stack developer',
+      title: 'Kiriam Campobadal Forés · Software engineer',
       meta: [
         { name: 'description', content: description },
         // Safari's translucent toolbars and overscroll areas show the page background, so it must be dark too
@@ -24,12 +24,12 @@ export default defineNuxtConfig({
         { property: 'og:type', content: 'website' },
         { property: 'og:url', content: siteUrl },
         { property: 'og:site_name', content: 'Kiriam C. Forés' },
-        { property: 'og:title', content: 'Kiriam Campobadal Forés · Full stack developer' },
+        { property: 'og:title', content: 'Kiriam Campobadal Forés · Software engineer' },
         { property: 'og:description', content: description },
         { property: 'og:image', content: `${siteUrl}og-image.png` },
         { property: 'og:image:width', content: '1200' },
         { property: 'og:image:height', content: '630' },
-        { property: 'og:image:alt', content: 'Kiri wordmark, with the text Kiriam Campobadal Forés, full stack developer' },
+        { property: 'og:image:alt', content: 'Kiri wordmark, with the text Kiriam Campobadal Forés, software engineer' },
         { name: 'twitter:card', content: 'summary_large_image' },
       ],
       htmlAttrs: { lang: 'en', class: 'bg-main-black' },
@@ -43,7 +43,7 @@ export default defineNuxtConfig({
             '@type': 'Person',
             name: 'Kiriam Campobadal Forés',
             alternateName: 'Kiri',
-            jobTitle: 'Full stack developer',
+            jobTitle: 'Software engineer',
             url: siteUrl,
             email: 'mailto:soc@kiriam.cat',
             image: `${siteUrl}og-image.png`,

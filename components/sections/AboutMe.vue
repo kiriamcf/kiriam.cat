@@ -72,7 +72,7 @@ useGsap(root, () => {
         <!-- Photo sits a step below the lead on desktop, so the two columns never start on the same line -->
         <div class="grid gap-12 md:grid-cols-12 md:gap-x-8 md:gap-y-16">
             <p ref="lead" class="md:col-span-7 text-3xl sm:text-4xl lg:text-5xl font-medium tracking-tight leading-[1.15] text-balance">
-                I'm Kiri, a {{ age }}-year-old developer who puts real <Highlight>care</Highlight> into every website.
+                I'm Kiri, a {{ age }}-year-old software engineer who puts real <Highlight>care</Highlight> into every website.
             </p>
             <div ref="photo" class="md:col-span-5 md:row-span-2 md:mt-24 aspect-[4/5] overflow-hidden rounded-2xl">
                 <img :src="portfolio" alt="Portrait of Kiriam" width="900" height="1331" loading="lazy" decoding="async" class="size-full object-cover">
