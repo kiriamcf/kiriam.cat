@@ -38,7 +38,7 @@ The first deploy from a machine asks you to log in to Cloudflare (`npx wrangler 
 components/
   animations/Loading.vue   intro loader: name → initials → curved reveal
   sections/                page sections (Header, Hero, AboutMe, Skills, Footer)
-  cards/, Text/, icons/    small presentational pieces
+  Text/, icons/            small presentational pieces
 composables/
   useGsap.js               scoped GSAP context per component, cleaned up on unmount
   useLoader.js             "loader finished" signal shared across the page

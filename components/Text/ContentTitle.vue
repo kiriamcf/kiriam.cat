@@ -8,17 +8,20 @@ const props = defineProps(['title'])
 const root = ref(null)
 
 useGsap(root, () => {
-    gsap.timeline({ scrollTrigger: { trigger: root.value, start: 'top 85%', once: true } })
-        .from('.title-line', { yPercent: 110, duration: 1.2, ease: 'expo.out' })
-        .from('.title-rule', { scaleX: 0, duration: 1, ease: 'expo.inOut' }, 0.15)
+    gsap.from('.title-line', {
+        scrollTrigger: { trigger: root.value, start: 'top 85%', once: true },
+        yPercent: 110,
+        duration: 1.2,
+        ease: 'expo.out',
+    })
 })
 </script>
 
+<!-- A quiet label: the section's own display type carries the weight, like the hero's wordmark -->
 <template>
-    <div ref="root" class="relative mb-8 w-fit">
-        <h2 class="text-4xl overflow-hidden pb-[0.1em] -mb-[0.1em]">
+    <div ref="root" class="mb-8 sm:mb-12">
+        <h2 class="overflow-hidden text-base text-white/50">
             <span class="title-line block">{{ props.title }}</span>
         </h2>
-        <div class="title-rule absolute -bottom-2 left-0 h-0.5 w-2/5 bg-white rounded origin-left"></div>
     </div>
 </template>

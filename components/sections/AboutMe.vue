@@ -18,23 +18,40 @@ const age = computed(() => {
     return hasBirthdayPassed ? age : age - 1;
 });
 
+const facts = [
+    { label: 'Based in', value: 'Manresa, Catalonia' },
+    { label: 'Studied', value: 'ICT Systems Engineering at UPC' },
+    { label: 'Off-screen', value: 'Rock climbing, my way to switch off' },
+    { label: 'At home', value: 'Two cats and a dog. A bit chaotic but I wouldn\'t change it' },
+]
+
 const root = ref(null)
-const text = ref(null)
+const lead = ref(null)
 const photo = ref(null)
 
 useGsap(root, () => {
-    // All paragraphs brighten as one continuous sequence in reading order, so only one letter is ever "current"
-    const splits = gsap.utils.toArray('.scroll-reveal').map((paragraph) => new SplitType(paragraph, { types: 'words, chars' }))
+    // The lead statement brightens letter by letter as it scrolls through, so it is read at the pace it appears
+    const split = new SplitType(lead.value, { types: 'words, chars' })
 
-    gsap.from(splits.flatMap((split) => split.chars), {
+    gsap.from(split.chars, {
         scrollTrigger: {
-            trigger: text.value,
+            trigger: lead.value,
             start: 'top 80%',
-            end: 'bottom 60%',
+            end: 'bottom 50%',
             scrub: 0.5,
         },
         opacity: 0.2,
         stagger: 0.1,
+    })
+
+    // Facts follow as one small group once the lead is on screen
+    gsap.from('.fact', {
+        scrollTrigger: { trigger: '.facts', start: 'top 85%', once: true },
+        y: 24,
+        autoAlpha: 0,
+        duration: 1,
+        stagger: 0.08,
+        ease: 'expo.out',
     })
 
     // Photo is uncovered from the bottom while it settles from a slight zoom
@@ -44,7 +61,7 @@ useGsap(root, () => {
             { clipPath: 'inset(0% 0% 0% 0%)', duration: 1.4, ease: 'expo.inOut', clearProps: 'clipPath' })
         .from('img', { scale: 1.3, duration: 1.8, ease: 'expo.out' }, 0)
 
-    return () => splits.forEach((split) => split.revert())
+    return () => split.revert()
 })
 
 </script>
@@ -52,27 +69,20 @@ useGsap(root, () => {
 <template>
     <section ref="root">
         <ContentTitle id="about-me" title="About me" />
-        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
-            <div ref="text" class="md:col-span-2 flex flex-col gap-7 text-lg">
-                <p class="scroll-reveal">
-                    Hello! My name is <Highlight>Kiriam</Highlight>, but people often call me <Highlight>Kiri</Highlight>. I am a {{ age }}-year-old full stack developer based in Manresa, Catalonia.
-                </p>
-                <p class="scroll-reveal">
-                    I hold a degree in <Highlight>ICT Systems Engineering</Highlight> from the Polytechnic University of Catalonia (UPC).
-                </p>
-                <p class="scroll-reveal">
-                    I'm all about crafting high-quality, well-designed websites—so much so that I haven't been replaced by A.I. yet.
-                </p>
-                <p class="scroll-reveal">
-                    In my downtime, I enjoy rock climbing. It's a great way to relax and de-stress, providing a refreshing break from everyday routines.
-                </p>
-                <p class="scroll-reveal">
-                    I have a strong affection for cats and share my home with two of them, along with one dog. Even though they sometimes make my life a bit <Highlight>chaotic</Highlight>, I wouldn't have it any other way.
-                </p>
+        <!-- Photo sits a step below the lead on desktop, so the two columns never start on the same line -->
+        <div class="grid gap-12 md:grid-cols-12 md:gap-x-8 md:gap-y-16">
+            <p ref="lead" class="md:col-span-7 text-3xl sm:text-4xl lg:text-5xl font-medium tracking-tight leading-[1.15] text-balance">
+                I'm Kiri, a {{ age }}-year-old developer who puts real <Highlight>care</Highlight> into every website.
+            </p>
+            <div ref="photo" class="md:col-span-5 md:row-span-2 md:mt-24 aspect-[4/5] overflow-hidden rounded-2xl">
+                <img :src="portfolio" alt="Portrait of Kiriam" class="size-full object-cover">
             </div>
-            <div ref="photo" class="h-full w-fit mx-auto overflow-hidden rounded-md shadow-lg">
-                <img :src="portfolio" alt="Portfolio Picture" class="h-full object-cover max-h-96 sm:max-h-none">
-            </div>
+            <dl class="facts md:col-span-7 md:row-start-2 grid gap-8 sm:grid-cols-2 self-start">
+                <div v-for="fact in facts" :key="fact.label" class="fact flex flex-col gap-1">
+                    <dt class="text-white/50">{{ fact.label }}</dt>
+                    <dd class="text-lg text-white/90 leading-snug max-w-[28ch]">{{ fact.value }}</dd>
+                </div>
+            </dl>
         </div>
     </section>
 </template>
