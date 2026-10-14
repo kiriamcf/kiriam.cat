@@ -12,7 +12,7 @@ const shouldDisplayIcon = ref(true)
 // The wordmark's own SVG box is the mask: letters wait below it, the K's leg waits further down its own axis
 const { run } = useGsap(hero, () => {
     gsap.set('.logo-letter', { y: 150 })
-    gsap.set('.logo-leg', { x: 45, y: 56 })
+    gsap.set('.logo-leg', legHiddenOffset(hero.value.querySelector('.logo-leg')))
     gsap.set('.hero-line', { yPercent: 110 })
     gsap.set('.hero-cue', { yPercent: -100 })
 })
@@ -26,6 +26,18 @@ onLoaderFinished(() => run(() => {
         .to('.hero-line', { yPercent: 0, duration: 1.2, stagger: 0.08, ease: 'expo.out' }, 0.7)
         .add(scrollCueLoop(), 1.4)
 }))
+
+// How far the leg must slide down its own axis (first point to second point of its polygon) so that its top,
+// stroke included, sits just below the bottom of the viewBox. Derived from the geometry because a hand-tuned
+// offset left the round-joined stroke tip a hair inside the box, visible as a red sliver once the logo scales up.
+function legHiddenOffset(leg) {
+    const [top, bottom] = [leg.points.getItem(0), leg.points.getItem(1)]
+    const viewBox = leg.ownerSVGElement.viewBox.baseVal
+    const strokeTop = top.y - parseFloat(getComputedStyle(leg).strokeWidth) / 2
+    const y = viewBox.y + viewBox.height - strokeTop + 2 // 2 units of clearance, still close enough to see the whole slide
+
+    return { x: y * (bottom.x - top.x) / (bottom.y - top.y), y }
+}
 
 // Arrow drops in from the top of its mask, rests, then falls out the bottom
 function scrollCueLoop() {
